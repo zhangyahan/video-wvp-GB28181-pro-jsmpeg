@@ -1,0 +1,71 @@
+{
+  "name": "pkg-name",
+  "version": "0.0.0",
+  "type": "module",
+  "packageManager": "npm@8.19.4",
+  "author": "Yahan Zhang <yahan.zg@outlook.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/zhangyahan/pkg-name#readme",
+  "engines": {
+    "node": ">=16.20.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhangyahan/pkg-name.git"
+  },
+  "bugs": "https://github.com/zhangyahan/pkg-name/issues",
+  "scripts": {
+    "prepare": "pnpm simple-git-hooks",
+    "preinstall": "npx only-allow pnpm",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.40.2",
+    "@commitlint/cli": "^17.6.7",
+    "@commitlint/config-conventional": "^17.6.7",
+    "@types/node": "^20.4.8",
+    "@vitejs/plugin-vue2": "^2.2.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "less": "^4.2.0",
+    "lint-staged": "^13.2.3",
+    "pnpm": "^8.6.12",
+    "postcss-html": "^1.5.0",
+    "postcss-less": "^6.0.0",
+    "postcss-scss": "^4.0.6",
+    "prettier": "^3.0.1",
+    "sass": "^1.65.1",
+    "simple-git-hooks": "^2.9.0",
+    "stylelint": "^15.10.2",
+    "stylelint-config-html": "^1.1.0",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-less": "^1.0.8",
+    "stylelint-order": "^6.0.3",
+    "stylelint-scss": "^5.1.0",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged",
+    "preserveUnused": [
+      "commit-msg"
+    ]
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.html": [
+      "prettier --write",
+      "stylelint --fix",
+      "eslint --fix"
+    ],
+    "*.{css,less,scss}": [
+      "stylelint --fix"
+    ]
+  }
+}
